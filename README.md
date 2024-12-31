@@ -37,7 +37,7 @@ Pasar saham merupakan salah satu elemen paling dinamis dalam dunia ekonomi dan b
 ## **Data Understanding**
 
 ### **Informasi Dataset**
-Dataset yang digunakan adalah data harga saham Tesla dari tahun 2010 hingga 2023. Dataset ini mencakup fitur-fitur berikut:
+Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010 sampai tahun 2023 dengan jumlah data sebanyak 3162 data. Informasi ini dapat digunakan untuk menganalisis kinerja saham perusahaan dari waktu ke waktu dan membuat prediksi tentang kinerja di masa mendatang. Informasi ini dapat digunakan untuk mempelajari tren dan pola di pasar saham dan membuat keputusan investasi yang tepat. Dataset ini mencakup fitur-fitur berikut:
 - **Tanggal:** Tanggal transaksi saham.
 - **Pembukaan:** Harga pembukaan saham pada tanggal tersebut.
 - **Tertinggi:** Harga tertinggi saham pada tanggal tersebut.
