@@ -82,7 +82,7 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
    ```python
    from sklearn.preprocessing import MinMaxScaler
    scaler = MinMaxScaler(feature_range=(0, 1))
-   scaled_data = scaler.fit_transform(df[['Penutupan']])
+   scaled_data = scaler.fit_transform(df[['Close']])
    ```
 
 3. **Membuat Sequence Data**:
