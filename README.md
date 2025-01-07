@@ -118,8 +118,8 @@ d. **Membuat Sequence Data**:
 ### **Visualisasi Hasil**
 ```python
 plt.figure(figsize=(14, 7))
-plt.plot(df.index[-len(y_test):], y_test_actual, label='Harga Aktual')
-plt.plot(df.index[-len(y_test):], predictions, label='Harga Prediksi')
+plt.plot(df['Date'][-len(y_test):], y_test_actual, label='Harga Aktual')
+plt.plot(df['Date'][-len(y_test):], predictions, label='Harga Prediksi')
 plt.title('Prediksi Harga Saham Tesla')
 plt.xlabel('Tanggal')
 plt.ylabel('Harga Penutupan')
