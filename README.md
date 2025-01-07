@@ -1,4 +1,5 @@
-# **Laporan Proyek Machine Learning - Adri Sopiana**
+# **Laporan Proyek Machine Learning - Prediksi Harga Saham Tesla (2010-2023)**
+**Adri Sopiana**
 
 ## **Domain Proyek**
 
@@ -38,12 +39,11 @@ Pasar saham merupakan salah satu elemen paling dinamis dalam dunia ekonomi dan b
 
 ### **Informasi Dataset**
 Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010 sampai tahun 2023 dengan jumlah data sebanyak 3162 data. Informasi ini dapat digunakan untuk menganalisis kinerja saham perusahaan dari waktu ke waktu dan membuat prediksi tentang kinerja di masa mendatang. Informasi ini dapat digunakan untuk mempelajari tren dan pola di pasar saham dan membuat keputusan investasi yang tepat. Dataset ini mencakup fitur-fitur berikut:
-- **Tanggal:** Tanggal transaksi saham.
-- **Pembukaan:** Harga pembukaan saham pada tanggal tersebut.
-- **Tertinggi:** Harga tertinggi saham pada tanggal tersebut.
-- **Terendah:** Harga terendah saham pada tanggal tersebut.
-- **Penutupan:** Harga penutupan saham pada tanggal tersebut.
-- **Kata tutup:** Harga penutupan yang disesuaikan.
+- **Date:** Tanggal transaksi saham.
+- **Open:** Harga pembukaan saham pada tanggal tersebut.
+- **High:** Harga tertinggi saham pada tanggal tersebut.
+- **Low:** Harga terendah saham pada tanggal tersebut.
+- **Close:** Harga penutupan saham pada tanggal tersebut (digunakan sebagai target).
 - **Volume:** Jumlah saham yang diperdagangkan pada tanggal tersebut.
 
 **Sumber Data:** (https://www.kaggle.com/datasets/muhammadbilalhaneef/-tesla-stock-price-from-2010-to-2023?resource=download) 
@@ -138,7 +138,7 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
    - Metrik ini mengukur seberapa jauh prediksi model dari nilai sebenarnya.
 
 2. **Hasil Evaluasi**:
-   - **RMSE Model LSTM:** 53.82
+   - **RMSE Model LSTM:** 13.14
 
 ### **Visualisasi Hasil**
 ```python
