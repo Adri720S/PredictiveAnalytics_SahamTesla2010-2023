@@ -45,36 +45,18 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
 
 **Sumber Data:** (https://www.kaggle.com/datasets/muhammadbilalhaneef/-tesla-stock-price-from-2010-to-2023?resource=download) 
 
-### **Exploratory Data Analysis**
-1. **Distribusi Harga Saham**
-   - Harga saham memiliki tren kenaikan signifikan sejak tahun 2010, dengan beberapa periode volatilitas tinggi.
-
-2. **Visualisasi Data**
-   ```python
-   plt.figure(figsize=(14, 7))
-   plt.plot(df['Penutupan'], label='Harga Penutupan')
-   plt.title('Pergerakan Harga Saham Tesla (2010-2023)')
-   plt.xlabel('Tanggal')
-   plt.ylabel('Harga Penutupan')
-   plt.legend()
-   plt.show()
-   ```
-
-3. **Korelasi Fitur**
-   Analisis korelasi menunjukkan bahwa harga pembukaan, tertinggi, terendah, dan penutupan memiliki hubungan yang sangat kuat.
-
----
-
 ## **Data Preparation**
 
 ### **Tahapan Data Preparation**
-1. **Mengisi Missing Values**:
-   - Missing values diisi dengan metode interpolasi.
+a. **Megecek Missing Values**:
+   - Mengecek missing values dengan metode interpolasi.
    ```python
    df.fillna(method='ffill', inplace=True)
    ```
+b. **Duplicate Data**
+Data duplikat diidentifikasi menggunakan df.duplicated().sum(). Jika ada duplikasi, kita menghapusnya dengan .drop_duplicates().
 
-2. **Normalisasi Data**:
+c. **Normalisasi Data**:
    - Data dinormalisasi menggunakan **MinMaxScaler** agar nilai berada pada rentang [0,1], yang diperlukan untuk model LSTM.
    ```python
    from sklearn.preprocessing import MinMaxScaler
@@ -82,7 +64,7 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
    scaled_data = scaler.fit_transform(df[['Close']])
    ```
 
-3. **Membuat Sequence Data**:
+d. **Membuat Sequence Data**:
    - Sequence data dibuat dengan menggunakan 60 hari terakhir sebagai input untuk memprediksi harga hari ke-61.
    ```python
    def create_sequences(data, seq_length):
@@ -123,11 +105,6 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
    model.fit(X_train, y_train, batch_size=32, epochs=50, validation_data=(X_test, y_test))
    ```
 
-4. **Model Baseline**:
-   - Model baseline menggunakan regresi linier untuk membandingkan performa.
-
----
-
 ## **Evaluation**
 
 ### **Metrik Evaluasi**
@@ -135,7 +112,7 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
    - Metrik ini mengukur seberapa jauh prediksi model dari nilai sebenarnya.
 
 2. **Hasil Evaluasi**:
-   - **RMSE Model LSTM:** 13.14
+   - **RMSE Model LSTM:** 30.096
 
 ### **Visualisasi Hasil**
 ```python
