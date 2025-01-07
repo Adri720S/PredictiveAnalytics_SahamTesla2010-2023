@@ -21,12 +21,10 @@ Pasar saham merupakan salah satu elemen paling dinamis dalam dunia ekonomi dan b
 ### **Problem Statements**
 1. Bagaimana menganalisis tren historis harga saham Tesla untuk memahami pola pergerakannya?
 2. Bagaimana cara memprediksi harga saham Tesla di masa depan berdasarkan data historis?
-3. Algoritma apa yang paling efektif untuk membuat prediksi harga saham?
 
 ### **Goals**
 1. Memberikan wawasan kepada investor tentang pola pergerakan harga saham Tesla.
 2. Membuat model prediktif untuk memperkirakan harga saham Tesla pada periode mendatang.
-3. Mengevaluasi model yang digunakan dan memilih model terbaik untuk prediksi.
 
 ### **Solution Statements**
 1. Menggunakan model **LSTM (Long Short-Term Memory)** untuk memprediksi harga saham, karena LSTM dikenal efektif untuk menangani data time series.
