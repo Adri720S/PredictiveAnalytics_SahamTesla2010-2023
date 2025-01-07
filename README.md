@@ -138,8 +138,7 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
    - Metrik ini mengukur seberapa jauh prediksi model dari nilai sebenarnya.
 
 2. **Hasil Evaluasi**:
-   - **RMSE Model LSTM:** 5.23
-   - **RMSE Model Baseline (Regresi Linier):** 15.87
+   - **RMSE Model LSTM:** 53.82
 
 ### **Visualisasi Hasil**
 ```python
