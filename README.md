@@ -29,7 +29,6 @@ Pasar saham merupakan salah satu elemen paling dinamis dalam dunia ekonomi dan b
 ### **Solution Statements**
 1. Menggunakan model **LSTM (Long Short-Term Memory)** untuk memprediksi harga saham, karena LSTM dikenal efektif untuk menangani data time series.
 2. Melakukan hyperparameter tuning untuk meningkatkan kinerja model.
-3. Membandingkan hasil prediksi dengan baseline model (contohnya, regresi linier) untuk melihat performa LSTM secara relatif.
 
 ---
 
