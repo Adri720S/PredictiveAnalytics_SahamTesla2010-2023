@@ -41,6 +41,7 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
 - **High:** Harga tertinggi saham pada tanggal tersebut.
 - **Low:** Harga terendah saham pada tanggal tersebut.
 - **Close:** Harga penutupan saham pada tanggal tersebut (digunakan sebagai target).
+- **Adj Close:** Harga penutupan yang disesuaikan.
 - **Volume:** Jumlah saham yang diperdagangkan pada tanggal tersebut.
 
 **Sumber Data:** (https://www.kaggle.com/datasets/muhammadbilalhaneef/-tesla-stock-price-from-2010-to-2023?resource=download) 
