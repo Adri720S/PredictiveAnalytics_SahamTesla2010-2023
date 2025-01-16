@@ -114,7 +114,7 @@ d. **Membuat Sequence Data**:
 1. **Root Mean Squared Error (RMSE):**
    - Metrik ini mengukur seberapa jauh prediksi model dari nilai sebenarnya.
 2. **Hasil Evaluasi**:
-   - **RMSE Model LSTM:** 30.096
+   - **RMSE Model LSTM:** 14.99
 3. **Dampak Model terhadap Business Understanding**
 Model yang dibangun menggunakan LSTM memberikan kontribusi terhadap Business Understanding sebagai berikut:
 a. Analisis Tren Historis
