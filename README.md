@@ -46,6 +46,8 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
 
 **Sumber Data:** (https://www.kaggle.com/datasets/muhammadbilalhaneef/-tesla-stock-price-from-2010-to-2023?resource=download) 
 
+Informasi kondisi dataset tidak ada missing value, tidak ada data duplikat dan outlier merupakan nilai dari pergerakan saham tersebut.
+
 ## **Data Preparation**
 
 ### **Tahapan Data Preparation**
