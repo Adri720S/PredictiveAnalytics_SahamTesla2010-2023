@@ -49,8 +49,8 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
 ## **Data Preparation**
 
 ### **Tahapan Data Preparation**
-a. **Megecek Missing Values**:
-   - Mengecek missing values dengan metode interpolasi.
+a. **Penanganan Missing Value**:
+   - Penanganan missing value dengan metode forward fill.
    ```python
    df.fillna(method='ffill', inplace=True)
    ```
