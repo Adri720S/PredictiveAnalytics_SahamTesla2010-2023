@@ -65,8 +65,7 @@ Ringkasan statistik numerik ditampilkan menggunakan .describe().
 ## **Data Preparation**
 
 ### **Tahapan Data Preparation**
-**a. Mengubah kolom Date menjadi tipe datetime**
-
+**a. Mengubah kolom Date menjadi tipe datetime**:
 Tujuan kolom Date diubah menjadi tipe datetime agar dapat membantu memastikan data diurutkan berdasarkan waktu atau data dapat diolah secara kronologis, yang merupakan syarat utama untuk analisis deret waktu (time-series). 
 
 **b. Normalisasi Data**:
@@ -77,6 +76,11 @@ Dataset dibagi menjadi 80% data training dan 20% data testing.
 
 **d. Membuat Sequence Data**:
 LSTM membutuhkan data dalam bentuk **urutan** untuk belajar pola dari data sebelumnya (temporal dependencies). Sehingga sequence data dibuat dengan menggunakan 60 hari terakhir sebagai input untuk memprediksi harga hari ke-61.
+
+**e. Visualisasi Data**:
+Pergerakan harga penutupan saham Tesla divisualisasikan menggunakan line plot. Agar gambaran umum tentang pola harga saham selama periode waktu tertentu dapat terlihat.
+
+![alt text](https://github.com/Adri720S/PredictiveAnalytics_SahamTesla2010-2023/blob/main/download%20(1).png?raw=true)
 
 ## **Modeling**
 
@@ -159,6 +163,7 @@ b. Hyperparameter tuning (seperti jumlah unit LSTM, jumlah epoch, dan learning r
 **7. Visualisasi Hasil**
 
 Berikut adalah visualisasi perbandingan antara harga saham aktual Tesla dan harga prediksi yang dihasilkan oleh model LSTM:
+
 Grafik Perbandingan Harga Aktual dan Prediksi
 
 ![alt text](https://github.com/Adri720S/PredictiveAnalytics_SahamTesla2010-2023/blob/main/download.png?raw=true)
