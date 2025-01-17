@@ -135,26 +135,9 @@ a. LSTM terbukti mampu menangani data time series dengan baik, karena memanfaatk
 b. Hyperparameter tuning (seperti jumlah unit LSTM, jumlah epoch, dan learning rate) membantu meningkatkan performa model dengan menurunkan nilai error (RMSE). Proses tuning menghasilkan model yang lebih optimal dibandingkan pengaturan default.
 7. **Visualisasi Hasil**
 Berikut adalah visualisasi perbandingan antara harga saham aktual Tesla dan harga prediksi yang dihasilkan oleh model LSTM:
-a. Grafik Perbandingan Harga Aktual dan Prediksi
+Grafik Perbandingan Harga Aktual dan Prediksi
+! [Deskripsi Gambar](path/download.png)
 Grafik ini menunjukkan performa model dalam memprediksi harga saham Tesla berdasarkan data testing.
-
-(Visualisasi dapat ditampilkan sesuai kebutuhan. Jika sudah ada model dan hasil prediksi, grafiknya bisa ditampilkan.)
-
-b. Error Evaluasi Model
-Grafik ini dapat menunjukkan distribusi error antara harga prediksi dan harga aktual.
-### **Visualisasi Hasil**
-```python
-plt.figure(figsize=(14, 7))
-plt.plot(df['Date'][-len(y_test):], y_test_actual, label='Harga Aktual')
-plt.plot(df['Date'][-len(y_test):], predictions, label='Harga Prediksi')
-plt.title('Prediksi Harga Saham Tesla')
-plt.xlabel('Tanggal')
-plt.ylabel('Harga Penutupan')
-plt.legend()
-plt.show()
-```
-
----
 
 ## **Kesimpulan**
 - Model LSTM menunjukkan performa yang jauh lebih baik dibandingkan baseline regresi linier untuk memprediksi harga saham Tesla, dengan RMSE yang lebih rendah.
