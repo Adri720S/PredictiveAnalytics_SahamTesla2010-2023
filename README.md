@@ -164,8 +164,6 @@ b. Hyperparameter tuning (seperti jumlah unit LSTM, jumlah epoch, dan learning r
 
 Berikut adalah visualisasi perbandingan antara harga saham aktual Tesla dan harga prediksi yang dihasilkan oleh model LSTM:
 
-Grafik Perbandingan Harga Aktual dan Prediksi
-
 ![alt text](https://github.com/Adri720S/PredictiveAnalytics_SahamTesla2010-2023/blob/main/download.png?raw=true)
 
 Grafik ini menunjukkan performa model dalam memprediksi harga saham Tesla berdasarkan data testing.
