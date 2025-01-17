@@ -1,9 +1,9 @@
-# **Laporan Proyek Machine Learning - Prediksi Harga Saham Tesla (2010-2023)**
-# **Adri Sopiana**
+# **Laporan Proyek Machine Learning - Adri Sopiana**
 
 ## **Domain Proyek**
 
 **Latar Belakang:**
+
 Pasar saham merupakan salah satu elemen paling dinamis dalam dunia ekonomi dan bisnis. Pergerakan harga saham dapat memberikan wawasan yang sangat berguna bagi investor untuk membuat keputusan investasi yang tepat. Dalam proyek ini, data historis harga saham Tesla (2010-2023) digunakan untuk menganalisis tren dan memprediksi harga saham di masa depan.
 
 **Mengapa masalah ini penting?**
@@ -35,7 +35,7 @@ Pasar saham merupakan salah satu elemen paling dinamis dalam dunia ekonomi dan b
 ## **Data Understanding**
 
 ### **Informasi Dataset**
-Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010 sampai tahun 2023 dengan jumlah data sebanyak 3162 data. Informasi ini dapat digunakan untuk menganalisis kinerja saham perusahaan dari waktu ke waktu dan membuat prediksi tentang kinerja di masa mendatang. Informasi ini dapat digunakan untuk mempelajari tren dan pola di pasar saham dan membuat keputusan investasi yang tepat. Dataset ini mencakup fitur-fitur berikut:
+Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010 sampai tahun 2023 dengan jumlah data sebanyak 3162 baris dan 7 kolom. Informasi ini dapat digunakan untuk menganalisis kinerja saham perusahaan dari waktu ke waktu dan membuat prediksi tentang kinerja di masa mendatang. Informasi ini dapat digunakan untuk mempelajari tren dan pola di pasar saham dan membuat keputusan investasi yang tepat. Dataset ini mencakup fitur-fitur berikut:
 - **Date:** Tanggal transaksi saham.
 - **Open:** Harga pembukaan saham pada tanggal tersebut.
 - **High:** Harga tertinggi saham pada tanggal tersebut.
@@ -44,41 +44,27 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
 - **Adj Close:** Harga penutupan yang disesuaikan.
 - **Volume:** Jumlah saham yang diperdagangkan pada tanggal tersebut.
 
-**Sumber Data:** (https://www.kaggle.com/datasets/muhammadbilalhaneef/-tesla-stock-price-from-2010-to-2023?resource=download) 
+**a. Penanganan Missing Value**:
+   - Penanganan missing value menggunakan metode forward fill yaitu mengisi nilai hilang dengan nilai rata-rata atau nilai sebelumnya.
+     
+**b. Duplicate Data**
+Data duplikat diidentifikasi menggunakan df.duplicated().sum(). Jika ada duplikasi, maka akan terhapus dengan .drop_duplicates().
 
-Informasi kondisi dataset tidak ada missing value, tidak ada data duplikat dan outlier merupakan nilai dari pergerakan saham tersebut.
+ Setelah dianalisis kondisi dataset tidak ada missing value, tidak ada data duplikat dan outlier merupakan nilai dari pergerakan saham tersebut.
+
+**Sumber Data:** (https://www.kaggle.com/datasets/muhammadbilalhaneef/-tesla-stock-price-from-2010-to-2023?resource=download) 
 
 ## **Data Preparation**
 
 ### **Tahapan Data Preparation**
-**a. Penanganan Missing Value**:
-   - Penanganan missing value dengan metode forward fill.
-   ```python
-   df.fillna(method='ffill', inplace=True)
-   ```
-**b. Duplicate Data**
-Data duplikat diidentifikasi menggunakan df.duplicated().sum(). Jika ada duplikasi, kita menghapusnya dengan .drop_duplicates().
+**a. Mengubah kolom Date menjadi tipe datetime**
+Tujuan kolom Date diubah menjadi tipe datetime agar dapat membantu memastikan data diurutkan berdasarkan waktu atau data dapat diolah secara kronologis, yang merupakan syarat utama untuk analisis deret waktu (time-series). 
 
-**c. Normalisasi Data**:
-   - Data dinormalisasi menggunakan **MinMaxScaler** agar nilai berada pada rentang [0,1], yang diperlukan untuk model LSTM.
-   ```python
-   from sklearn.preprocessing import MinMaxScaler
-   scaler = MinMaxScaler(feature_range=(0, 1))
-   scaled_data = scaler.fit_transform(df[['Close']])
-   ```
+**b. Normalisasi Data**:
+   - LSTM lebih efektif jika data input berada dalam skala yang seragam maka data dinormalisasi menggunakan **MinMaxScaler** agar nilai berada pada rentang [0,1], yang diperlukan untuk model.
 
-**d. Membuat Sequence Data**:
-   - Sequence data dibuat dengan menggunakan 60 hari terakhir sebagai input untuk memprediksi harga hari ke-61.
-   ```python
-   def create_sequences(data, seq_length):
-       X, y = [], []
-       for i in range(len(data) - seq_length):
-           X.append(data[i:i + seq_length, 0])
-           y.append(data[i + seq_length, 0])
-       return np.array(X), np.array(y)
-   ```
-
----
+**c. Membuat Sequence Data**:
+   - LSTM membutuhkan data dalam bentuk **urutan** untuk belajar pola dari data sebelumnya (temporal dependencies). Sehingga sequence data dibuat dengan menggunakan 60 hari terakhir sebagai input untuk memprediksi harga hari ke-61.
 
 ## **Modeling**
 
