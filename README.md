@@ -40,19 +40,19 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
 - **Adj Close:** Harga penutupan yang disesuaikan.
 - **Volume:** Jumlah saham yang diperdagangkan pada tanggal tersebut.
 
-**a. Tipe Data**:
+**1. Tipe Data**:
 Tipe data terdiri dari float64 untuk nilai harga saham, int64 untuk volume, dan object untuk tanggal.
 
-**b. Penanganan Missing Value**:
+**2. Penanganan Missing Value**:
 Penanganan missing value menggunakan metode forward fill yaitu mengisi nilai hilang dengan nilai rata-rata atau nilai sebelumnya. Setelah dianalisis kondisi dataset tidak ada missing value.
      
-**c. Duplicate Data**:
+**3. Duplicate Data**:
 Data duplikat diidentifikasi menggunakan df.duplicated().sum(). Hasilnya kondisi dataset tidak ada duplikat data.
 
-**d. Statistik Deskriptif**:
+**4. Statistik Deskriptif**:
 Ringkasan statistik numerik ditampilkan menggunakan .describe().
 
-**e. Outlier Detection**:
+**5. Outlier Detection**:
 - Menggunakan metode IQR untuk mendeteksi outlier pada setiap kolom numerik.
 - Visualisasi distribusi menggunakan boxplot menunjukkan bahwa outlier adalah bagian alami dari data saham.
 
@@ -61,19 +61,19 @@ Ringkasan statistik numerik ditampilkan menggunakan .describe().
 ## **Data Preparation**
 
 ### **Tahapan Data Preparation**
-**a. Mengubah kolom Date menjadi tipe datetime**:
+**1. Mengubah kolom Date menjadi tipe datetime**:
 Tujuan kolom Date diubah menjadi tipe datetime agar dapat membantu memastikan data diurutkan berdasarkan waktu atau data dapat diolah secara kronologis, yang merupakan syarat utama untuk analisis deret waktu (time-series). 
 
-**b. Normalisasi Data**:
+**2. Normalisasi Data**:
 LSTM lebih efektif jika data input berada dalam skala yang seragam maka data dinormalisasi menggunakan **MinMaxScaler** agar nilai berada pada rentang [0,1], yang diperlukan untuk model.
 
-**c. Split Data**:
+**3. Split Data**:
 Dataset dibagi menjadi 80% data training dan 20% data testing.
 
-**d. Membuat Sequence Data**:
+**4. Membuat Sequence Data**:
 LSTM membutuhkan data dalam bentuk **urutan** untuk belajar pola dari data sebelumnya (temporal dependencies). Sehingga sequence data dibuat dengan menggunakan 60 hari terakhir sebagai input untuk memprediksi harga hari ke-61.
 
-**e. Visualisasi Data**:
+**5. Visualisasi Data**:
 Pergerakan harga penutupan saham Tesla divisualisasikan menggunakan line plot. Agar gambaran umum tentang pola harga saham selama periode waktu tertentu dapat terlihat.
 
 ![alt text](https://github.com/Adri720S/PredictiveAnalytics_SahamTesla2010-2023/blob/main/download%20(1).png?raw=true)
@@ -128,14 +128,12 @@ Metrik ini mengukur seberapa jauh prediksi model dari nilai sebenarnya.
 Model yang dibangun menggunakan LSTM memberikan kontribusi terhadap Business Understanding sebagai berikut:
 
 1. Analisis Tren Historis
-
-Dengan mempelajari data historis harga saham Tesla, model memberikan wawasan tentang pola pergerakan harga saham, seperti:
-- Tren kenaikan atau penurunan dalam jangka waktu tertentu.
-- Pola musiman atau fluktuasi harga.
-- Periode volatilitas tinggi atau rendah. Wawasan ini dapat digunakan oleh investor untuk membuat keputusan investasi yang lebih bijak.
+   Dengan mempelajari data historis harga saham Tesla, model memberikan wawasan tentang pola pergerakan harga saham, seperti:
+   - Tren kenaikan atau penurunan dalam jangka waktu tertentu.
+   - Pola musiman atau fluktuasi harga.
+   - Periode volatilitas tinggi atau rendah. Wawasan ini dapat digunakan oleh investor untuk membuat keputusan investasi yang lebih bijak.
   
 2. Prediksi Harga Saham di Masa Depan
-
 Prediksi yang dihasilkan oleh model memberikan estimasi harga saham Tesla pada periode mendatang. Walaupun tidak sepenuhnya akurat (karena sifat pasar yang dinamis), prediksi ini dapat digunakan sebagai acuan oleh investor untuk memperkirakan peluang dan risiko dalam berinvestasi.
 
 **d. Evaluasi Problem Statements**
