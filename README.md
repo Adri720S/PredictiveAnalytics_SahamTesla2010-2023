@@ -115,47 +115,38 @@ Pergerakan harga penutupan saham Tesla divisualisasikan menggunakan line plot. A
 ## **Evaluation**
 
 ### **Metrik Evaluasi**
-**a. Root Mean Squared Error (RMSE):**
+**1. Root Mean Squared Error (RMSE):**
 
 Metrik ini mengukur seberapa jauh prediksi model dari nilai sebenarnya.
      
-**b. Hasil Evaluasi**:
+**2. Hasil Evaluasi**:
 
 **RMSE Model LSTM:** 14.99
      
-**c. Dampak Model terhadap Business Understanding**
+**3. Dampak Model terhadap Business Understanding**
 
 Model yang dibangun menggunakan LSTM memberikan kontribusi terhadap Business Understanding sebagai berikut:
-
-1. Analisis Tren Historis
+- Analisis Tren Historis
    Dengan mempelajari data historis harga saham Tesla, model memberikan wawasan tentang pola pergerakan harga saham, seperti:
    - Tren kenaikan atau penurunan dalam jangka waktu tertentu.
    - Pola musiman atau fluktuasi harga.
    - Periode volatilitas tinggi atau rendah. Wawasan ini dapat digunakan oleh investor untuk membuat keputusan investasi yang lebih bijak.
-  
-2. Prediksi Harga Saham di Masa Depan
+- Prediksi Harga Saham di Masa Depan
 Prediksi yang dihasilkan oleh model memberikan estimasi harga saham Tesla pada periode mendatang. Walaupun tidak sepenuhnya akurat (karena sifat pasar yang dinamis), prediksi ini dapat digunakan sebagai acuan oleh investor untuk memperkirakan peluang dan risiko dalam berinvestasi.
 
-**d. Evaluasi Problem Statements**
+**4. Evaluasi Problem Statements**
+- Model LSTM telah memanfaatkan data historis (harga saham 60 hari sebelumnya) untuk mengidentifikasi pola yang relevan. Melalui visualisasi hasil, tren historis dapat dilihat dengan jelas, termasuk bagaimana pola harga dipelajari oleh model.
+- Model LSTM mampu memprediksi harga saham Tesla berdasarkan pola yang dipelajari dari data historis. Prediksi diuji menggunakan data testing (20% dari total dataset), menghasilkan error yang cukup rendah (dengan metrik RMSE).
 
-1. Model LSTM telah memanfaatkan data historis (harga saham 60 hari sebelumnya) untuk mengidentifikasi pola yang relevan. Melalui visualisasi hasil, tren historis dapat dilihat dengan jelas, termasuk bagaimana pola harga dipelajari oleh model.
+**5. Evaluasi Goals**
+- Analisis tren historis yang dilakukan memberikan wawasan tentang pola pergerakan harga saham, seperti periode kenaikan, penurunan, atau fluktuasi besar. Grafik perbandingan antara harga aktual dan harga prediksi membantu investor memahami bagaimana data historis memengaruhi prediksi di masa depan.
+- Model prediktif berbasis LSTM telah berhasil dibuat dan diuji. Model dapat memberikan prediksi harga saham untuk periode tertentu, yang dapat digunakan oleh investor sebagai referensi tambahan.
 
-2. Model LSTM mampu memprediksi harga saham Tesla berdasarkan pola yang dipelajari dari data historis. Prediksi diuji menggunakan data testing (20% dari total dataset), menghasilkan error yang cukup rendah (dengan metrik RMSE).
+**6. Evaluasi Solution Statements**
+- LSTM terbukti mampu menangani data time series dengan baik, karena memanfaatkan kemampuan untuk mengingat informasi jangka panjang. Prediksi harga saham Tesla yang dihasilkan mendekati harga aktual, seperti yang terlihat dalam grafik hasil prediksi.
+- Hyperparameter tuning (seperti jumlah unit LSTM, jumlah epoch, dan learning rate) membantu meningkatkan performa model dengan menurunkan nilai error (RMSE). Proses tuning menghasilkan model yang lebih optimal dibandingkan pengaturan default.
 
-**e. Evaluasi Goals**
-
-1. Analisis tren historis yang dilakukan memberikan wawasan tentang pola pergerakan harga saham, seperti periode kenaikan, penurunan, atau fluktuasi besar. Grafik perbandingan antara harga aktual dan harga prediksi membantu investor memahami bagaimana data historis memengaruhi prediksi di masa depan.
-
-2. Model prediktif berbasis LSTM telah berhasil dibuat dan diuji. Model dapat memberikan prediksi harga saham untuk periode tertentu, yang dapat digunakan oleh investor sebagai referensi tambahan.
-
-**f. Evaluasi Solution Statements**
-
-1. LSTM terbukti mampu menangani data time series dengan baik, karena memanfaatkan kemampuan untuk mengingat informasi jangka panjang. Prediksi harga saham Tesla yang dihasilkan mendekati harga aktual, seperti yang terlihat dalam grafik hasil prediksi.
-
-2. Hyperparameter tuning (seperti jumlah unit LSTM, jumlah epoch, dan learning rate) membantu meningkatkan performa model dengan menurunkan nilai error (RMSE). Proses tuning menghasilkan model yang lebih optimal dibandingkan pengaturan default.
-
-**g. Visualisasi Hasil**
-
+**7. Visualisasi Hasil**
 Berikut adalah visualisasi perbandingan antara harga saham aktual Tesla dan harga prediksi yang dihasilkan oleh model LSTM:
 
 ![alt text](https://github.com/Adri720S/PredictiveAnalytics_SahamTesla2010-2023/blob/main/download.png?raw=true)
