@@ -44,13 +44,21 @@ Kumpulan data berisi harga saham historis untuk perusahaan Tesla dari tahun 2010
 - **Adj Close:** Harga penutupan yang disesuaikan.
 - **Volume:** Jumlah saham yang diperdagangkan pada tanggal tersebut.
 
-**a. Penanganan Missing Value**:
-   - Penanganan missing value menggunakan metode forward fill yaitu mengisi nilai hilang dengan nilai rata-rata atau nilai sebelumnya.
-     
-**b. Duplicate Data**
-Data duplikat diidentifikasi menggunakan df.duplicated().sum(). Jika ada duplikasi, maka akan terhapus dengan .drop_duplicates().
+**a. Tipe Data**:
+Tipe data terdiri dari float64 untuk nilai harga saham, int64 untuk volume, dan object untuk tanggal.
 
- Setelah dianalisis kondisi dataset tidak ada missing value, tidak ada data duplikat dan outlier merupakan nilai dari pergerakan saham tersebut.
+**b. Penanganan Missing Value**:
+Penanganan missing value menggunakan metode forward fill yaitu mengisi nilai hilang dengan nilai rata-rata atau nilai sebelumnya. Setelah dianalisis kondisi dataset tidak ada missing value.
+     
+**c. Duplicate Data**:
+Data duplikat diidentifikasi menggunakan df.duplicated().sum(). Hasilnya kondisi dataset tidak ada duplikat data.
+
+**d. Statistik Deskriptif**:
+Ringkasan statistik numerik ditampilkan menggunakan .describe().
+
+**e. Outlier Detection**:
+- Menggunakan metode IQR untuk mendeteksi outlier pada setiap kolom numerik.
+- Visualisasi distribusi menggunakan boxplot menunjukkan bahwa outlier adalah bagian alami dari data saham.
 
 **Sumber Data:** (https://www.kaggle.com/datasets/muhammadbilalhaneef/-tesla-stock-price-from-2010-to-2023?resource=download) 
 
@@ -58,13 +66,17 @@ Data duplikat diidentifikasi menggunakan df.duplicated().sum(). Jika ada duplika
 
 ### **Tahapan Data Preparation**
 **a. Mengubah kolom Date menjadi tipe datetime**
+
 Tujuan kolom Date diubah menjadi tipe datetime agar dapat membantu memastikan data diurutkan berdasarkan waktu atau data dapat diolah secara kronologis, yang merupakan syarat utama untuk analisis deret waktu (time-series). 
 
 **b. Normalisasi Data**:
-   - LSTM lebih efektif jika data input berada dalam skala yang seragam maka data dinormalisasi menggunakan **MinMaxScaler** agar nilai berada pada rentang [0,1], yang diperlukan untuk model.
+LSTM lebih efektif jika data input berada dalam skala yang seragam maka data dinormalisasi menggunakan **MinMaxScaler** agar nilai berada pada rentang [0,1], yang diperlukan untuk model.
 
-**c. Membuat Sequence Data**:
-   - LSTM membutuhkan data dalam bentuk **urutan** untuk belajar pola dari data sebelumnya (temporal dependencies). Sehingga sequence data dibuat dengan menggunakan 60 hari terakhir sebagai input untuk memprediksi harga hari ke-61.
+**c. Split Data**:
+Dataset dibagi menjadi 80% data training dan 20% data testing.
+
+**d. Membuat Sequence Data**:
+LSTM membutuhkan data dalam bentuk **urutan** untuk belajar pola dari data sebelumnya (temporal dependencies). Sehingga sequence data dibuat dengan menggunakan 60 hari terakhir sebagai input untuk memprediksi harga hari ke-61.
 
 ## **Modeling**
 
@@ -72,12 +84,18 @@ Tujuan kolom Date diubah menjadi tipe datetime agar dapat membantu memastikan da
 1. **LSTM**:
    - Digunakan karena mampu menangani data time series dengan baik, terutama dalam mendeteksi pola jangka panjang dan pendek.
 
-2. **Hyperparameter Tuning**:
-   - Epoch: 50
+2. **Arsitektur Model**:
+   - 2 lapisan LSTM dengan masing-masing 50 unit.
+   - Dropout untuk mencegah overfitting.
+   - Dense untuk menghasilkan output akhir berupa harga prediksi.
+  
+3. **Parameter Training**:
    - Batch size: 32
-   - Neuron: 50 pada dua lapisan LSTM.
+   - Epochs: 50
+   - Optimizer: Adam
+   - Loss Function: Mean Squared Error
 
-3. **Implementasi Model LSTM**:
+4. **Implementasi Model LSTM**:
    ```python
    from tensorflow.keras.models import Sequential
    from tensorflow.keras.layers import LSTM, Dense, Dropout
@@ -142,7 +160,9 @@ b. Hyperparameter tuning (seperti jumlah unit LSTM, jumlah epoch, dan learning r
 
 Berikut adalah visualisasi perbandingan antara harga saham aktual Tesla dan harga prediksi yang dihasilkan oleh model LSTM:
 Grafik Perbandingan Harga Aktual dan Prediksi
+
 ! [alt text](https://github.com/Adri720S/PredictiveAnalytics_SahamTesla2010-2023/blob/main/download.png?raw=true)
+
 Grafik ini menunjukkan performa model dalam memprediksi harga saham Tesla berdasarkan data testing.
 
 ## **Kesimpulan**
